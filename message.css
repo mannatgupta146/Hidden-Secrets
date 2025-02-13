@@ -38,7 +38,7 @@ canvas {
 .text {
   font-size: 200%;
   margin-bottom: 10%;
-  width: 70%;  /* Adjusted width to be a bit smaller */
+  width: 70%;  
   height: auto;
   justify-content: center;
   color: white;
@@ -68,7 +68,7 @@ h3 {
 
 @media (max-aspect-ratio: 1/1) {
   .overlay {
-    width: 80%;  /* Adjusted width */
+    width: 80%;  
     max-width: 80%;
   }
 
@@ -84,7 +84,7 @@ h3 {
 
   .text {
     font-size: 120%;
-    width: 80%;  /* Adjusted width */
+    width: 80%;  
   }
 }
 
@@ -95,6 +95,6 @@ h3 {
 
   .text {
     font-size: 100%;
-    width: 80%;  /* Adjusted width */
+    width: 80%;  
   }
 }

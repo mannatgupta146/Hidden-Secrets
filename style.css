@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-bg-color: rgba(15, 13, 14, 0.459);
+  --highlight-color: #ff5c8d;
+  --text-color: #fff;
+  --font-family: 'Cursive', sans-serif;
+}
+
 #home {
   width: 100%;
   height: 100vh;
@@ -11,29 +18,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: rgba(15, 13, 14, 0.459);
+  background-color: var(--primary-bg-color);
   background-blend-mode: overlay;
   display: flex;
   justify-content: center;
   align-items: center;
   background-attachment: fixed;
-
-  animation-name: bg-change;
-  animation-duration: 15s;
-  animation-timing-function: linear;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-
+  animation: bg-change 15s linear infinite alternate;
   overflow: hidden;
 }
 
 @keyframes bg-change {
-  from {
+  0% {
     background-image: url(/gif/butterfly.gif);
   }
-
-  to {
-    background-image: url(gif/butterfly.gif);
+  100% {
+    background-image: url(gif/heart.gif);
   }
 }
 
@@ -46,50 +46,60 @@
   padding: 10px;
 }
 
-/**************/
-
 #container {
   width: 30vw;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: Beat 2s ease infinite alternate;
-
   position: absolute;
   left: 35%;
   top: -7%;
+  animation: Beat 2s ease infinite alternate;
 }
+
 #container a {
   position: absolute;
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
   text-align: center;
   font-weight: 700;
-  font-family: cursive;
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
 }
+
+#container a:hover {
+  transform: scale(1.1);
+}
+
 #container span {
-  color: rgb(255, 255, 255);
+  color: var(--text-color);
   font-weight: 300;
   font-size: 10px;
   padding-top: 100px;
 }
-.left {
-  background-color: red;
+
+.left,
+.right {
+  background-color: var(--highlight-color);
   height: 12vw;
   aspect-ratio: 1/1.5;
   border-radius: 50% 50% 0% 0%;
+  position: absolute;
+  animation: bounce 2s ease infinite alternate;
+}
+
+.left {
   rotate: -47deg;
   translate: 30%;
 }
+
 .right {
-  background-color: red;
-  height: 12vw;
-  aspect-ratio: 1/1.5;
-  border-radius: 50% 50% 0% 0%;
   rotate: 47deg;
   translate: -30%;
 }
+
 @keyframes Beat {
   0% {
     transform: scale(120%);
@@ -105,16 +115,29 @@
   }
 }
 
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 h2 {
   position: absolute;
-  color: rgb(255, 255, 255);
-  font-family: cursive;
+  color: var(--text-color);
+  font-family: var(--font-family);
   font-weight: 900;
   white-space: nowrap;
   bottom: 8%;
   text-align: center;
   animation: flicker 0.5s ease-in-out infinite alternate;
 }
+
 @keyframes flicker {
   0% {
     opacity: 0.8;
@@ -127,40 +150,51 @@ h2 {
 }
 
 h1 {
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 50px;
   font-weight: bold;
-  font-family: cursive;
+  font-family: var(--font-family);
   letter-spacing: 7px;
   cursor: pointer;
   position: absolute;
   bottom: 30%;
+  text-align: center;
 }
+
 h1 span {
   transition: 0.2s linear;
 }
+
 h1:hover span:nth-child(1) {
   margin-right: 5px;
 }
+
 h1:hover span:nth-child(1):after {
   content: "💖";
 }
+
 h1:hover span:nth-child(2) {
   margin-left: 30px;
 }
+
 h1:hover span {
-  color: #fff;
+  color: var(--text-color);
   text-shadow: 0 0 10px #da2626, 0 0 20px #e74343, 0 0 40px #fff;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+@media only screen and (max-device-width: 480px) {
   h2,
   p {
-    font-size: 10px;
+    font-size: 12px;
   }
-  .left {
-    height: 22vw;
-  }
+  
+  .left,
   .right {
-    height: 22vw;
+    height: 20vw;
+  }
+
+  h1 {
+    font-size: 30px;
+    bottom: 25%;
   }
 }

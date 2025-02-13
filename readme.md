@@ -55,4 +55,5 @@ Feel free to fork this repository, submit pull requests, or open issues for impr
 
 **Secret Message**: Shh... Here's a secret just for you 💌... I love you soooo much, but let's keep it between us 💞!
 
-- Thanks for exploring the **Hidden Secrets** project! If you found it useful or have suggestions for improvement, feel free to open an issue or submit a pull request.
+---
+Thanks for exploring the **Hidden Secrets** project! If you found it useful or have suggestions for improvement, feel free to open an issue or submit a pull request.

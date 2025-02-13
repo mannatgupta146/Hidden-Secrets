@@ -51,9 +51,9 @@ Easily modify these elements in the project to personalize the experience:
 ## Contributing
 Feel free to fork this repository, submit pull requests, or open issues for improvements or bug fixes. Please ensure to follow best practices and maintain the project structure.
 
----
-
-**Secret Message**: Shh... Here's a secret just for you 💌... I love you soooo much, but let's keep it between us 💞!
-
----
 Thanks for exploring the **Hidden Secrets** project! If you found it useful or have suggestions for improvement, feel free to open an issue or submit a pull request.
+
+---
+
+## **Secret Message**: Shh... Here's a secret just for you 💌... I love you soooo much, but let's keep it between us 💞!
+

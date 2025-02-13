@@ -3,8 +3,6 @@
 ## Purpose
 Have you ever found it difficult to reveal a secret to someone? **Hidden Secrets** is an interactive web project designed to mirror that very feeling of hesitation and intrigue. Just like hiding a secret, the project lets you uncover something hidden only when you engage with it—by hovering over the page. The background changes, and a secret message appears, providing an immersive experience that draws users into the world of mystery. 
 
-**Psst... 💖 I love you sooo much, but it’s a secret! 🤫** Now, don’t you feel a little bit like you’ve uncovered something personal and exciting? This project showcases how CSS, JavaScript, and HTML can work together to create a suspenseful and interactive user experience.
-
 ## Features
 - **Full-screen canvas background** with dynamic animations that evolve as users interact with the page.
 - **Hover effect** that reveals a hidden secret message when users hover over the page.

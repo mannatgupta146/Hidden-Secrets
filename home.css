@@ -4,36 +4,39 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary-bg-color: rgba(15, 13, 14, 0.459);
-  --highlight-color: #ff5c8d;
-  --text-color: #fff;
-  --font-family: 'Cursive', sans-serif;
-}
-
 #home {
   width: 100%;
   height: 100vh;
-  background-image: url(/gif/butterfly.gif);
+  background-image: url(/gif/star.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: var(--primary-bg-color);
+  background-color: rgba(15, 13, 14, 0.459);
   background-blend-mode: overlay;
   display: flex;
   justify-content: center;
   align-items: center;
   background-attachment: fixed;
-  animation: bg-change 15s linear infinite alternate;
-  overflow: hidden;
+  animation-name: bg-change;
+  animation-duration: 30s; 
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  overflow: hidden; 
 }
 
 @keyframes bg-change {
   0% {
     background-image: url(/gif/butterfly.gif);
   }
+  33% {
+    background-image: url(/gif/star.gif);
+  }
+  66% {
+    background-image: url(/gif/heart.gif); 
+  }
   100% {
-    background-image: url(gif/heart.gif);
+    background-image: url(/gif/star.gif);
   }
 }
 
@@ -46,60 +49,50 @@
   padding: 10px;
 }
 
+/**************/
+
 #container {
   width: 30vw;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: Beat 2s ease infinite alternate;
+
   position: absolute;
   left: 35%;
   top: -7%;
-  animation: Beat 2s ease infinite alternate;
 }
-
 #container a {
   position: absolute;
   text-decoration: none;
-  color: var(--text-color);
+  color: white;
   text-align: center;
   font-weight: 700;
-  font-family: var(--font-family);
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
+  font-family: cursive;
 }
-
-#container a:hover {
-  transform: scale(1.1);
-}
-
 #container span {
-  color: var(--text-color);
+  color: rgb(255, 255, 255);
   font-weight: 300;
   font-size: 10px;
   padding-top: 100px;
 }
-
-.left,
-.right {
-  background-color: var(--highlight-color);
+.left {
+  background-color: red;
   height: 12vw;
   aspect-ratio: 1/1.5;
   border-radius: 50% 50% 0% 0%;
-  position: absolute;
-  animation: bounce 2s ease infinite alternate;
-}
-
-.left {
   rotate: -47deg;
   translate: 30%;
 }
-
 .right {
+  background-color: red;
+  height: 12vw;
+  aspect-ratio: 1/1.5;
+  border-radius: 50% 50% 0% 0%;
   rotate: 47deg;
   translate: -30%;
 }
-
 @keyframes Beat {
   0% {
     transform: scale(120%);
@@ -115,29 +108,16 @@
   }
 }
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 h2 {
   position: absolute;
-  color: var(--text-color);
-  font-family: var(--font-family);
+  color: rgb(255, 255, 255);
+  font-family: cursive;
   font-weight: 900;
   white-space: nowrap;
   bottom: 8%;
   text-align: center;
   animation: flicker 0.5s ease-in-out infinite alternate;
 }
-
 @keyframes flicker {
   0% {
     opacity: 0.8;
@@ -150,51 +130,59 @@ h2 {
 }
 
 h1 {
-  color: var(--text-color);
+  color: #ffffff;
   font-size: 50px;
   font-weight: bold;
-  font-family: var(--font-family);
-  letter-spacing: 7px;
+  font-family: 'Cursive', sans-serif;
+  letter-spacing: 5px;
   cursor: pointer;
   position: absolute;
-  bottom: 30%;
+  bottom: 25%;
   text-align: center;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease;
 }
 
 h1 span {
-  transition: 0.2s linear;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.1);
 }
 
 h1:hover span:nth-child(1) {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
-h1:hover span:nth-child(1):after {
+h1:hover span:nth-child(1)::after {
   content: "💖";
 }
 
 h1:hover span:nth-child(2) {
-  margin-left: 30px;
+  margin-left: 12px;
 }
 
 h1:hover span {
-  color: var(--text-color);
-  text-shadow: 0 0 10px #da2626, 0 0 20px #e74343, 0 0 40px #fff;
+  color: #ffffff;
+  text-shadow: 0 0 10px #c32828, 0 0 15px #d01010;
 }
-
-@media only screen and (max-device-width: 480px) {
-  h2,
-  p {
-    font-size: 12px;
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  h2, p {
+    font-size: 14px;
   }
-  
-  .left,
-  .right {
-    height: 20vw;
-  }
-
   h1 {
     font-size: 30px;
-    bottom: 25%;
+  }
+  .left, .right {
+    height: 30vw;
+  }
+  #container {
+    width: 80vw;
+    left: 10%;
+    top: -15%; 
+  }
+  .home_section {
+    padding: 10px; 
   }
 }
+

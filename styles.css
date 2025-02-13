@@ -27,16 +27,16 @@
 
 @keyframes bg-change {
   0% {
-    background-image: url(/gif/butterfly.gif);
+    background-image: url(butterfly.gif);
   }
   33% {
-    background-image: url(/gif/star.gif);
+    background-image: url(star.gif);
   }
   66% {
-    background-image: url(/gif/heart.gif); 
+    background-image: url(heart.gif); 
   }
   100% {
-    background-image: url(/gif/star.gif);
+    background-image: url(star.gif);
   }
 }
 

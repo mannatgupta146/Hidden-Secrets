@@ -32,7 +32,7 @@ The secret message stays hidden until the user hovers over the page. This effect
 
 2. **Open the project folder** in your code editor.
 
-3. **Open the `home.html` file** in your browser to view the project.
+3. **Open the `index.html` file** in your browser to view the project.
 
 ## Customization
 Easily modify these elements in the project to personalize the experience:

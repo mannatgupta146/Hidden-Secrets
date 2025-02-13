@@ -55,5 +55,6 @@ Thanks for exploring the **Hidden Secrets** project! If you found it useful or h
 
 ---
 
-## **Secret Message**: Shh... Here's a secret just for you 💌... I love you soooo much, but let's keep it between us 💞!
+## **Secret Message**:
+Shh... Here's a secret just for you 💌... I love you soooo much, but let's keep it between us 💞!
 

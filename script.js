@@ -13,6 +13,18 @@ const params = {
   color: { r: 0.8, g: 0.5, b: 0.2 },
 };
 
+//mobile
+canvas.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  pointer.moved = true;
+  pointer.dx = 8 * (e.targetTouches[0].pageX - pointer.x);
+  pointer.dy = 8 * (e.targetTouches[0].pageY - pointer.y);
+  pointer.x = e.targetTouches[0].pageX;
+  pointer.y = e.targetTouches[0].pageY;
+  pointer.firstMove = true;
+});
+
+
 const pointer = {
   x: 0.65 * window.innerWidth,
   y: 0.5 * window.innerHeight,

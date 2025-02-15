@@ -14,34 +14,6 @@ const params = {
 };
 
 //mobile
-canvas.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-  const touch = e.targetTouches[0]; // Get the first touch
-  pointer.moved = true;
-  pointer.dx = 8 * (touch.clientX - pointer.x);
-  pointer.dy = 8 * (touch.clientY - pointer.y);
-  pointer.x = touch.clientX;
-  pointer.y = touch.clientY;
-  pointer.firstMove = true;
-});
-
-e.stopPropagation();
-
-canvas.addEventListener("mousemove", handleMove);
-canvas.addEventListener("touchmove", handleMove);
-
-function handleMove(e) {
-  e.preventDefault();
-  const x = e.type === "touchmove" ? e.targetTouches[0].clientX : e.clientX;
-  const y = e.type === "touchmove" ? e.targetTouches[0].clientY : e.clientY;
-  
-  pointer.moved = true;
-  pointer.dx = 8 * (x - pointer.x);
-  pointer.dy = 8 * (y - pointer.y);
-  pointer.x = x;
-  pointer.y = y;
-  pointer.firstMove = true;
-}
 
 //
 

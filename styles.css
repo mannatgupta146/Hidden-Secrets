@@ -167,8 +167,13 @@ h1:hover span {
   text-shadow: 0 0 10px #c32828, 0 0 15px #d01010;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  h2, p {
+  h2{
     font-size: 14px;
+  }
+  p{
+    font-size: 14px;
+    position: relative;
+    top: 20px; 
   }
   h1 {
     font-size: 30px;

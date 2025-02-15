@@ -173,7 +173,7 @@ h1:hover span {
   p{
     font-size: 14px;
     position: relative;
-    top: 20px; 
+    top: 50px; 
   }
   h1 {
     font-size: 30px;
@@ -181,7 +181,7 @@ h1:hover span {
   .left, .right {
     height: 25vw;
     position: relative;
-    top: 20px; 
+    top: 50px; 
   }
   #container {
     width: 80vw;

@@ -308,3 +308,86 @@ initFBOs();
 window.setTimeout(() => pointer.firstMove = true, 3000);
 render();
 image.style.opacity = "1";
+
+// Modify handleInput function
+function handleInput(x, y) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
+    const newX = (x - rect.left) * scaleX;
+    const newY = (y - rect.top) * scaleY;
+    
+    // Add momentum smoothing
+    pointer.dx = 0.5 * (8 * (newX - pointer.x) + pointer.dx);
+    pointer.dy = 0.5 * (8 * (newY - pointer.y) + pointer.dy);
+    pointer.x = newX;
+    pointer.y = newY;
+    pointer.moved = true;
+    pointer.firstMove = true;
+  }
+
+  // Modify resize handler
+window.addEventListener("resize", () => {
+    params.SPLAT_RADIUS = 5 / window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = canvas.clientWidth * dpr;
+    canvas.height = canvas.clientHeight * dpr;
+    initFBOs();
+  });
+
+  // Add these additional event listeners
+canvas.addEventListener('touchcancel', (e) => {
+    e.preventDefault();
+    pointer.moved = false;
+  });
+  
+  canvas.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    pointer.moved = false;
+  });
+
+  // Create these once at initialization
+let vertexBuffer, indexBuffer;
+
+function initBuffers() {
+  const vertices = new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]);
+  const indices = new Uint16Array([0, 1, 2, 0, 2, 3]);
+
+  vertexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+  indexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW);
+}
+
+// Then in blit function:
+function blit(target) {
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+  // ... rest of blit code
+}
+
+// Add after WebGL context creation
+if (!gl) {
+    alert('WebGL not supported, please try in a modern browser');
+    return;
+  }
+  
+  if (!gl.getExtension('OES_texture_float')) {
+    alert('Float textures not supported');
+    return;
+  }
+
+  // Modify the auto-movement code in render()
+if (!pointer.firstMove) {
+    const time = prevTimestamp * 0.001;
+    pointer.x = (0.65 + 0.2 * Math.cos(time * 0.6) * Math.sin(time * 0.8)) * canvas.width;
+    pointer.y = (0.5 + 0.12 * Math.sin(time)) * canvas.height;
+    pointer.dx = Math.cos(time) * 2;
+    pointer.dy = Math.sin(time) * 2;
+    pointer.moved = true;
+  }
+

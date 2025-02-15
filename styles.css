@@ -174,8 +174,9 @@ h1:hover span {
     font-size: 30px;
   }
   .left, .right {
-    height: 15vw;
-
+    height: 25vw;
+    position: relative;
+    top: 20px; 
   }
   #container {
     width: 80vw;

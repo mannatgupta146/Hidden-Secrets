@@ -1,156 +1,42 @@
-html,
-body {
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  background-color: rgba(255, 0, 0, 0.693);
-  height: 100%;
-}
-
-canvas {
+h3 {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-}
-
-.content {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-}
-
-.overlay {
-  position: fixed;
-  top: 50%;
+  z-index: 8;
   left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  transform: translateX(-50%);
+  color: white;
   font-family: sans-serif;
-  font-size: 10vh;
-  font-weight: bold;
-  pointer-events: none;
-  text-transform: uppercase;
-  text-align: center;
-  color: white;
-}
-
-.text {
-  font-size: 200%;
-  margin-bottom: 10%;
-  width: 70%;  
-  height: auto;
-  justify-content: center;
-  color: white;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: cursive;
-  font-weight: 900;
   text-align: justify;
+  width: 90%; /* Adding some padding to avoid text hitting the edges */
+  margin: 0;
+  padding: 0 20px;
+  font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
-p {
-  font-size: 120%;
-  color: white;
-  margin: 0 10px;
-  text-align: justify;
-}
-
-/* Mobile-first adjustments */
 @media (max-width: 768px) {
-  .overlay {
-    font-size: 8vh;
-  }
-
   .text {
-    font-size: 150%;
-    width: 80%;
+      width: 95%;
+      font-size: 1rem;
+      text-align: justify;
   }
-
-  p {
-    font-size: 100%; /* Ensure readability on smaller devices */
-    text-align: center; /* Center-align for better layout */
-  }
-
+  
   h3 {
-    left: 35%;
-    font-size: 90%;
+      bottom: 3%;
+      font-size: 0.9rem; /* Slightly smaller for readability */
   }
 }
 
 @media (max-width: 480px) {
-  .overlay {
-    font-size: 6vh;
-  }
-
   .text {
-    font-size: 120%;
-    width: 90%;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: justify;
   }
-
-  p {
-    font-size: 90%; /* Further adjust for small screens */
-    width: 90%;
-  }
-
+  
   h3 {
-    left: 30%;
-    font-size: 80%;
+      font-size: 0.8rem;
+      bottom: 2%;
+      width: 95%; /* Ensure more spacing on small devices */
+      text-align: justify;
   }
-}
-
-/* Aspect-ratio-based adjustments */
-@media (max-aspect-ratio: 3/5) {
-  .overlay {
-    font-size: 5vh;
-  }
-
-  p {
-    font-size: 90%; /* Ensure p is readable */
-  }
-}
-
-@media (max-aspect-ratio: 1/1) {
-  .overlay {
-    width: 80%;  
-    max-width: 80%;
-  }
-
-  .text {
-    font-size: 150%;
-  }
-  p {
-    font-size: 100%; /* Ensure readability on smaller devices */
-    text-align: center; /* Center-align for better layout */
-  }
-}
-
-@media (max-aspect-ratio: 9/16) {
-  .overlay {
-    font-size: 5vh;
-  }
-  p {
-    font-size: 100%; /* Ensure readability on smaller devices */
-    text-align: center; /* Center-align for better layout */
-  }
-}
-
-@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 9/16) {
-  .overlay {
-    width: 80%;
-    max-width: 80%;
-  }
-  p {
-    font-size: 100%; /* Ensure readability on smaller devices */
-    text-align: center; /* Center-align for better layout */
-  }
-}
-
-/* General font size scaling for flexibility */
-.overlay {
-  font-size: clamp(4vh, 5vw, 8vh);
 }

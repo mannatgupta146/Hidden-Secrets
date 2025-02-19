@@ -58,7 +58,7 @@ h3 {
   left: 50%;
   bottom: 5%;
   transform: translateX(-50%);
-  color: white;
+  color: black;
   font-family: sans-serif;
   text-align: justify;
   width: 90%; /* Adding some padding to avoid text hitting the edges */

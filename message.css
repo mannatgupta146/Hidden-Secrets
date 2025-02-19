@@ -4,6 +4,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: rgba(255, 0, 0, 0.693);
+  height: 100%;
 }
 
 canvas {
@@ -12,6 +13,7 @@ canvas {
   left: 0;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 }
 
 .content {
@@ -20,6 +22,7 @@ canvas {
   left: 0;
   width: 100%;
   height: 100vh;
+  min-height: 100vh;
 }
 
 .overlay {
@@ -62,7 +65,7 @@ h3 {
   }
 
   p {
-    left: 30%;
+    text-align: center; /* Align instead of fixed left for better positioning */
   }
 }
 
@@ -97,4 +100,21 @@ h3 {
     font-size: 100%;
     width: 80%;  
   }
+}
+
+@media (max-aspect-ratio: 9/16) {
+  .overlay {
+    font-size: 5vh;
+  }
+}
+
+@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 9/16) {
+  .overlay {
+    width: 80%;
+    max-width: 80%;
+  }
+}
+
+.overlay {
+  font-size: clamp(4vh, 5vw, 8vh); /* Dynamic font scaling for better flexibility */
 }

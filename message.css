@@ -55,17 +55,18 @@ canvas {
 h3 {
   position: fixed;
   z-index: 8;
-  left: 50%;
-  bottom: 5%;
-  transform: translateX(-50%);
+  left: 85%; /* Center horizontally */
+  bottom: 5%; /* Position near the bottom */
+  transform: translateX(-50%); /* Center by offsetting half its width */
   color: black;
   font-family: sans-serif;
   text-align: justify;
-  width: 90%; /* Adding some padding to avoid text hitting the edges */
+  width: 90%; /* Adding padding to avoid hitting edges */
   margin: 0;
   padding: 0 20px;
   font-size: clamp(0.8rem, 3vw, 1rem);
 }
+
 
 @media (max-width: 768px) {
   .text {

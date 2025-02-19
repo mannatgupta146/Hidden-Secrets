@@ -36,6 +36,7 @@ canvas {
   pointer-events: none;
   text-transform: uppercase;
   text-align: center;
+  color: white;
 }
 
 .text {
@@ -52,20 +53,64 @@ canvas {
   text-align: justify;
 }
 
-h3 {
-  position: absolute;
-  z-index: 8;
-  left: 40%;
-  bottom: 5%;
+p {
+  font-size: 120%;
+  color: white;
+  margin: 0 10px;
+  text-align: justify;
 }
 
+/* Mobile-first adjustments */
+@media (max-width: 768px) {
+  .overlay {
+    font-size: 8vh;
+  }
+
+  .text {
+    font-size: 150%;
+    width: 80%;
+  }
+
+  p {
+    font-size: 100%; /* Ensure readability on smaller devices */
+    text-align: center; /* Center-align for better layout */
+  }
+
+  h3 {
+    left: 35%;
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    font-size: 6vh;
+  }
+
+  .text {
+    font-size: 120%;
+    width: 90%;
+  }
+
+  p {
+    font-size: 90%; /* Further adjust for small screens */
+    width: 90%;
+  }
+
+  h3 {
+    left: 30%;
+    font-size: 80%;
+  }
+}
+
+/* Aspect-ratio-based adjustments */
 @media (max-aspect-ratio: 3/5) {
   .overlay {
     font-size: 5vh;
   }
 
   p {
-    text-align: center; /* Align instead of fixed left for better positioning */
+    font-size: 90%; /* Ensure p is readable */
   }
 }
 
@@ -77,28 +122,6 @@ h3 {
 
   .text {
     font-size: 150%;
-  }
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    font-size: 8vh;
-  }
-
-  .text {
-    font-size: 120%;
-    width: 80%;  
-  }
-}
-
-@media (max-width: 480px) {
-  .overlay {
-    font-size: 6vh;
-  }
-
-  .text {
-    font-size: 100%;
-    width: 80%;  
   }
 }
 
@@ -115,6 +138,7 @@ h3 {
   }
 }
 
+/* General font size scaling for flexibility */
 .overlay {
-  font-size: clamp(4vh, 5vw, 8vh); /* Dynamic font scaling for better flexibility */
+  font-size: clamp(4vh, 5vw, 8vh);
 }
